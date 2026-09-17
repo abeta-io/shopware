@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace MagmodulesAbeta\Service;
 
+use MagmodulesAbeta\Event\AbetaCartExportEvent;
 use MagmodulesAbeta\Struct\AbetaSession;
 use Shopware\Core\Checkout\Cart\Cart;
 use Shopware\Core\Checkout\Cart\LineItem\LineItem;
@@ -14,6 +15,7 @@ use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Contracts\HttpClient\Exception\TransportExceptionInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
@@ -27,15 +29,25 @@ class AbetaCartService
         private readonly EntityRepository $productRepository,
         private readonly EntityRepository $categoryRepository,
         private readonly HttpClientInterface $httpClient,
+        private readonly EventDispatcherInterface $eventDispatcher,
     ) {
     }
 
     public function getCartData(Request $request, SalesChannelContext $context): array
     {
-        return [
+        $data = [
             'general' => $this->getGeneralData($request, $context),
             ...$this->getCartExportData($context),
         ];
+
+        $event = new AbetaCartExportEvent(
+            $this->cartService->getCart($context->getToken(), $context),
+            $data,
+            $context,
+        );
+        $this->eventDispatcher->dispatch($event);
+
+        return $event->getData();
     }
 
     public function getCartExportData(SalesChannelContext $context): array
