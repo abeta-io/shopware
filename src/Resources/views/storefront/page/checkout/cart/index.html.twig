@@ -1,0 +1,17 @@
+{% sw_extends '@Storefront/storefront/page/checkout/cart/index.html.twig' %}
+
+{% block base_head %}
+    {{ parent() }}
+
+    {% if context.hasExtension('abetaSession') and not config('MagmodulesAbeta.config.exportAtConfirmStep') %}
+        {% sw_include '@MagmodulesAbeta/storefront/component/checkout/abeta-export-modal.html.twig' %}
+    {% endif %}
+{% endblock %}
+
+{% block page_checkout_cart_action_proceed %}
+    {% if context.hasExtension('abetaSession') and not config('MagmodulesAbeta.config.exportAtConfirmStep') %}
+        {% sw_include '@MagmodulesAbeta/storefront/component/checkout/abeta-export-button.html.twig' %}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}

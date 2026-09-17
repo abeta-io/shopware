@@ -1,0 +1,21 @@
+{% set buttontext = config('MagmodulesAbeta.config.buttonLabel') %}
+{% set useModal = config('MagmodulesAbeta.config.useModal') %}
+<!-- Button trigger modal -->
+{% if not useModal %}
+    <div class="d-grid">
+        {% block page_abeta_export_form_submit %}
+            <button id="confirmAbetaForm"
+                    type="submit"
+                    form="confirmAbetaForm"
+                    class="btn btn-primary mt-3"
+                    data-select-product-price>{{ buttontext }}</button>
+        {% endblock %}
+    </div>
+{% else %}
+    <div class="d-grid">
+        <button type="button" class="btn btn-primary mt-3" data-bs-toggle="modal"
+                data-bs-target="#exampleModal">
+            {{ buttontext }}
+        </button>
+    </div>
+{% endif %}

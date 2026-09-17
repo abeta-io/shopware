@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/trunk/src/Core/System/SystemConfig/Schema/config.xsd">
+
+    <card>
+        <title>Abeta API configuration</title>
+        <title lang="de-DE">Abeta-API konfigurationen</title>
+
+        <input-field type="bool">
+            <name>active</name>
+            <label>Active</label>
+            <label lang="de-DE">Aktiv</label>
+        </input-field>
+
+        <input-field type="text">
+            <name>abetaApi</name>
+            <label>Abeta API key</label>
+            <label lang="de-DE">Abeta-API-schlüssel</label>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Button and shipping method configuration</title>
+        <title lang="de-DE">Konfiguration von Schaltflächen und Versandmethoden</title>
+
+        <input-field type="text">
+            <name>buttonLabel</name>
+            <label>Return button label</label>
+            <label lang="de-DE">Etikett der Rückgabe-Taste</label>
+        </input-field>
+
+        <component name="sw-entity-single-select">
+            <name>shippingMethod</name>
+            <entity>shipping_method</entity>
+            <label>Select Shipping Method</label>
+            <label lang="de-DE">Wählen sie die versandart aus</label>
+        </component>
+
+        <input-field type="bool">
+            <name>useModal</name>
+            <label>Use modal</label>
+            <label lang="de-DE">Modal verwenden</label>
+        </input-field>
+
+        <input-field type="bool">
+            <name>exportAtConfirmStep</name>
+            <label>Export at checkout confirm step (instead of cart)</label>
+            <label lang="de-DE">Export beim Bestellabschluss (statt im Warenkorb)</label>
+            <helpText>Lets the customer complete the checkout address/shipping steps first, so a personal delivery address can be filled in and included in the cart export. Export happens just before the order would be placed; no real Shopware order is created.</helpText>
+            <helpText lang="de-DE">Lässt den Kunden zuerst die Adress-/Versandschritte durchlaufen, damit eine persönliche Lieferadresse ausgefüllt und in den Cart-Export aufgenommen werden kann. Der Export erfolgt kurz vor der Bestellaufgabe; es wird keine echte Shopware-Bestellung erstellt.</helpText>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Abeta API configuration</title>
+        <title lang="de-DE">Abeta-API konfigurationen</title>
+
+        <input-field type="bool">
+            <name>debug</name>
+            <label>Enable debug mode</label>
+            <label lang="de-DE">Debug modus einschalten</label>
+        </input-field>
+    </card>
+
+    <card>
+        <title>Punchout styling</title>
+        <title lang="de-DE">Punchout-Styling</title>
+
+        <input-field type="textarea">
+            <name>punchoutCss</name>
+            <label>Punchout CSS</label>
+            <label lang="de-DE">Punchout-CSS</label>
+            <helpText>CSS injected on every storefront page while a punchout session is active. Not applied for regular customers or visitors.</helpText>
+            <helpText lang="de-DE">CSS, das auf jeder Storefront-Seite eingefügt wird, solange eine Punchout-Sitzung aktiv ist. Wird nicht für reguläre Kunden oder Besucher angewendet.</helpText>
+        </input-field>
+    </card>
+</config>

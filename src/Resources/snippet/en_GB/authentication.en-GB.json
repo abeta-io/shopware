@@ -1,0 +1,13 @@
+{
+  "magmodules-abeta-login": {
+    "checkout": {
+      "page": {
+        "emptyResult": "Bestel data voor PunchOut sessie"
+      },
+      "table": {
+        "row1": "Product name",
+        "row2": "Aantal"
+      }
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{% set configShipping = config('MagmodulesAbeta.config.shippingMethod') %}
+{% set shippingMethodName = null %}
+{% if configShipping %}
+    {% for shipping in page.shippingMethods %}
+        {% if shipping.id == configShipping %}
+            {% set shippingMethodName = shipping.name %}
+        {% else %}
+            {% set shippingMethodName = page.cart.deliveries.elements[0].shippingMethod.name %}
+        {% endif %}
+    {% endfor %}
+{% else %}
+    {% set shippingMethodName = page.cart.deliveries.elements[0].shippingMethod.name %}
+{% endif %}
+
+{% set shippingMethodCount = page.cart.deliveries.elements|length %}
+{% set cartElements = page.cart.lineItems.elements %}
+{% set buttontext = config('MagmodulesAbeta.config.buttonLabel') %}
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <form id="confirmAbetaForm"
+                  action="{{ path('frontend.abeta.checkout') }}"
+                  data-form-preserver="true"
+                  data-form-submit-loader="true"
+                  data-form-add-history="true"
+                  method="post">
+
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5 float-start" id="exampleModalLabel">
+                        {{ "magmodules-abeta-login.checkout.page.emptyResult"|trans|sw_sanitize }}
+                    </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+
+                <div class="modal-body">
+                    <div>
+                        <table class="table table-striped">
+                            <thead>
+                            <th>{{ "magmodules-abeta-login.checkout.table.row1"|trans|sw_sanitize }}</th>
+                            <th>{{ "magmodules-abeta-login.checkout.table.row2"|trans|sw_sanitize }}</th>
+                            </thead>
+                            <tbody class="table">
+                            {% for data in cartElements %}
+                                <tr>
+                                    <td>{{ data.label }}</td>
+                                    <td>{{ data.quantity }}</td>
+                                </tr>
+                            {% endfor %}
+                            <tr>
+                                <td>
+                                    {{ shippingMethodName }}
+                                </td>
+                                <td>
+                                    {{ shippingMethodCount }}
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    {% block page_abeta_export_form_submit_with_modal %}
+                        <button id="confirmAbetaForm"
+                                type="submit"
+                                form="confirmAbetaForm"
+                                class="btn btn-primary"
+                                data-select-product-price>{{ buttontext }}</button>
+                    {% endblock %}
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
