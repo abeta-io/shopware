@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace MagmodulesAbeta\Core\Content\AbetaLogin;
+namespace Abeta\PunchOut\Core\Content\AbetaLogin;
 
 use Shopware\Core\Checkout\Customer\CustomerDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityDefinition;

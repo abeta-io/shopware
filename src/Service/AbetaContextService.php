@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace MagmodulesAbeta\Service;
+namespace Abeta\PunchOut\Service;
 
 use Shopware\Core\Framework\Util\Hasher;
 use Shopware\Core\Framework\Util\Random;

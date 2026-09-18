@@ -4,9 +4,3 @@
 - Punchout sessions are unique now and don't share the cart with the regular account or other punchout sessions
 - Add /v1/abeta/itemdata endpoint: returns a recalculated cart with customer-specific pricing and shipping methods for a given email and SKU/qty list
 - Add "export at checkout confirm step" config option: lets the customer fill in a personal delivery address during checkout before the cart is exported to Abeta, instead of exporting straight from the cart page
-
-# 1.1.0
-- Add support for Customized Products
-
-# 1.0.0
-- initial version

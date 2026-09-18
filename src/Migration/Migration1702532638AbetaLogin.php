@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace MagmodulesAbeta\Migration;
+namespace Abeta\PunchOut\Migration;
 
 use Doctrine\DBAL\Connection;
 use Shopware\Core\Framework\Migration\MigrationStep;

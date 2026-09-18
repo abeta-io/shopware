@@ -1,12 +1,12 @@
 <?php
 declare(strict_types=1);
 
-namespace MagmodulesAbeta\Controller;
+namespace Abeta\PunchOut\Controller;
 
-use MagmodulesAbeta\Service\AbetaApiAuthenticator;
-use MagmodulesAbeta\Service\AbetaCartService;
-use MagmodulesAbeta\Service\AbetaContextService;
-use MagmodulesAbeta\Service\AbetaItemDataService;
+use Abeta\PunchOut\Service\AbetaApiAuthenticator;
+use Abeta\PunchOut\Service\AbetaCartService;
+use Abeta\PunchOut\Service\AbetaContextService;
+use Abeta\PunchOut\Service\AbetaItemDataService;
 use Shopware\Core\Checkout\Cart\SalesChannel\CartService;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
 use Shopware\Storefront\Controller\StorefrontController;

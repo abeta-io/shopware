@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace MagmodulesAbeta\Controller;
+namespace Abeta\PunchOut\Controller;
 
-use MagmodulesAbeta\Service\AbetaApiAuthenticator;
+use Abeta\PunchOut\Service\AbetaApiAuthenticator;
 use Shopware\Core\Checkout\Customer\SalesChannel\AccountService;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\Uuid\Uuid;

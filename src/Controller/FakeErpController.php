@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace MagmodulesAbeta\Controller;
+namespace Abeta\PunchOut\Controller;
 
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
 use Shopware\Core\System\SystemConfig\SystemConfigService;
@@ -37,7 +37,7 @@ class FakeErpController extends StorefrontController
     {
         $this->assertEnabled($context);
 
-        $apiKey = (string) ($this->systemConfigService->get('MagmodulesAbeta.config.abetaApi', $context->getSalesChannelId()) ?? '');
+        $apiKey = (string) ($this->systemConfigService->get('AbetaPunchOut.config.abetaApi', $context->getSalesChannelId()) ?? '');
         $sessionId = 'erp-' . bin2hex(random_bytes(4));
         $returnUrl = $this->router->generate('frontend.abeta.fake-erp.receive', [], UrlGeneratorInterface::ABSOLUTE_URL);
         $loginUrl = $this->router->generate('frontend.abeta.fake-erp.punchout', [], UrlGeneratorInterface::ABSOLUTE_URL);
@@ -200,7 +200,7 @@ HTML;
 
     private function assertEnabled(SalesChannelContext $context): void
     {
-        $debug = (bool) $this->systemConfigService->get('MagmodulesAbeta.config.debug', $context->getSalesChannelId());
+        $debug = (bool) $this->systemConfigService->get('AbetaPunchOut.config.debug', $context->getSalesChannelId());
 
         if ($this->appEnv === 'prod' && !$debug) {
             throw new NotFoundHttpException();

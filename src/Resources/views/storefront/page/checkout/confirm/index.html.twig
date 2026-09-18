@@ -3,14 +3,14 @@
 {% block base_head %}
     {{ parent() }}
 
-    {% if context.hasExtension('abetaSession') and config('MagmodulesAbeta.config.exportAtConfirmStep') %}
-        {% sw_include '@MagmodulesAbeta/storefront/component/checkout/abeta-export-modal.html.twig' %}
+    {% if context.hasExtension('abetaSession') and config('AbetaPunchOut.config.exportAtConfirmStep') %}
+        {% sw_include '@AbetaPunchOut/storefront/component/checkout/abeta-export-modal.html.twig' %}
     {% endif %}
 {% endblock %}
 
 {% block page_checkout_confirm_form_submit %}
-    {% if context.hasExtension('abetaSession') and config('MagmodulesAbeta.config.exportAtConfirmStep') %}
-        {% sw_include '@MagmodulesAbeta/storefront/component/checkout/abeta-export-button.html.twig' %}
+    {% if context.hasExtension('abetaSession') and config('AbetaPunchOut.config.exportAtConfirmStep') %}
+        {% sw_include '@AbetaPunchOut/storefront/component/checkout/abeta-export-button.html.twig' %}
     {% else %}
         {{ parent() }}
     {% endif %}

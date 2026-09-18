@@ -1,5 +1,5 @@
 {
-  "magmodules-abeta-login": {
+  "abeta-punch-out": {
     "checkout": {
       "page": {
         "emptyResult": "Bestel data voor PunchOut sessie"

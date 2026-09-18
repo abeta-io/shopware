@@ -4,7 +4,7 @@
     {{ parent() }}
 
     {% if context.hasExtension('abetaSession') %}
-        {% set punchoutCss = config('MagmodulesAbeta.config.punchoutCss') %}
+        {% set punchoutCss = config('AbetaPunchOut.config.punchoutCss') %}
         {% if punchoutCss is not empty %}
             <style id="abeta-punchout-css">{{ punchoutCss|raw }}</style>
         {% endif %}

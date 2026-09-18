@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace MagmodulesAbeta\Controller;
+namespace Abeta\PunchOut\Controller;
 
-use MagmodulesAbeta\Core\Content\AbetaLogin\AbetaLoginEntity;
-use MagmodulesAbeta\Service\AbetaContextService;
+use Abeta\PunchOut\Core\Content\AbetaLogin\AbetaLoginEntity;
+use Abeta\PunchOut\Service\AbetaContextService;
 use Shopware\Core\Checkout\Customer\Event\CustomerLoginEvent;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;

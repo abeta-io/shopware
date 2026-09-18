@@ -1,16 +1,16 @@
 {
-    "name": "magmodules-abeta/magmodules-abeta",
+    "name": "abeta-io/shopware6",
     "description": "Abeta OCI & cXML PunchOut",
     "type": "shopware-platform-plugin",
     "version": "6.0.0",
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "MagmodulesAbeta\\": "src/"
+            "Abeta\\PunchOut\\": "src/"
         }
     },
     "extra": {
-        "shopware-plugin-class": "MagmodulesAbeta\\MagmodulesAbeta",
+        "shopware-plugin-class": "Abeta\\PunchOut\\AbetaPunchOut",
         "label": {
             "de-DE": "Abeta OCI & cXML PunchOut",
             "en-GB": "Abeta OCI & cXML PunchOut"

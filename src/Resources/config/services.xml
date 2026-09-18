@@ -4,19 +4,19 @@
            xmlns="http://symfony.com/schema/dic/services"
            xsi:schemaLocation="http://symfony.com/schema/dic/services https://symfony.com/schema/dic/services/services-1.0.xsd">
     <services>
-        <service id="MagmodulesAbeta\Core\Content\AbetaLogin\AbetaLoginDefinition">
+        <service id="Abeta\PunchOut\Core\Content\AbetaLogin\AbetaLoginDefinition">
             <tag name="shopware.entity.definition" entity="abeta_customer_login"/>
         </service>
 
-        <service id="MagmodulesAbeta\Core\Content\Extension\CustomerExtension">
+        <service id="Abeta\PunchOut\Core\Content\Extension\CustomerExtension">
             <tag name="shopware.entity.extension"/>
         </service>
 
-        <service id="MagmodulesAbeta\Core\Content\Extension\SalesChannelExtension">
+        <service id="Abeta\PunchOut\Core\Content\Extension\SalesChannelExtension">
             <tag name="shopware.entity.extension"/>
         </service>
 
-        <service id="MagmodulesAbeta\Controller\FrontAccountLoginController" public="true">
+        <service id="Abeta\PunchOut\Controller\FrontAccountLoginController" public="true">
             <call method="setContainer">
                 <argument type="service" id="service_container"/>
             </call>
@@ -25,13 +25,13 @@
             </call>
 
             <argument type="service" id="abeta_customer_login.repository"/>
-            <argument type="service" id="MagmodulesAbeta\Service\AbetaContextService"/>
+            <argument type="service" id="Abeta\PunchOut\Service\AbetaContextService"/>
             <argument type="service" id="Shopware\Core\System\SalesChannel\Context\CartRestorer"/>
             <argument type="service" id="event_dispatcher"/>
             <argument type="service" id="Shopware\Core\System\SalesChannel\Context\SalesChannelContextPersister"/>
         </service>
 
-        <service id="MagmodulesAbeta\Controller\AbetaCheckoutController" public="true">
+        <service id="Abeta\PunchOut\Controller\AbetaCheckoutController" public="true">
             <call method="setContainer">
                 <argument type="service" id="service_container"/>
             </call>
@@ -39,37 +39,37 @@
                 <argument type="service" id="twig"/>
             </call>
             <argument type="service" id="Shopware\Core\Checkout\Cart\SalesChannel\CartService"/>
-            <argument type="service" id="MagmodulesAbeta\Service\AbetaCartService"/>
+            <argument type="service" id="Abeta\PunchOut\Service\AbetaCartService"/>
         </service>
 
-        <service id="MagmodulesAbeta\Controller\AbetaLoginController" public="true">
+        <service id="Abeta\PunchOut\Controller\AbetaLoginController" public="true">
             <call method="setContainer">
                 <argument type="service" id="service_container"/>
             </call>
             <call method="setTwig">
                 <argument type="service" id="twig"/>
             </call>
-            <argument type="service" id="MagmodulesAbeta\Service\AbetaApiAuthenticator"/>
+            <argument type="service" id="Abeta\PunchOut\Service\AbetaApiAuthenticator"/>
             <argument type="service" id="abeta_customer_login.repository"/>
             <argument type="service" id="Shopware\Core\Checkout\Customer\SalesChannel\AccountService"/>
             <argument type="service" id="router"/>
         </service>
 
-        <service id="MagmodulesAbeta\Controller\AbetaItemDataController" public="true">
+        <service id="Abeta\PunchOut\Controller\AbetaItemDataController" public="true">
             <call method="setContainer">
                 <argument type="service" id="service_container"/>
             </call>
             <call method="setTwig">
                 <argument type="service" id="twig"/>
             </call>
-            <argument type="service" id="MagmodulesAbeta\Service\AbetaApiAuthenticator"/>
-            <argument type="service" id="MagmodulesAbeta\Service\AbetaContextService"/>
-            <argument type="service" id="MagmodulesAbeta\Service\AbetaItemDataService"/>
-            <argument type="service" id="MagmodulesAbeta\Service\AbetaCartService"/>
+            <argument type="service" id="Abeta\PunchOut\Service\AbetaApiAuthenticator"/>
+            <argument type="service" id="Abeta\PunchOut\Service\AbetaContextService"/>
+            <argument type="service" id="Abeta\PunchOut\Service\AbetaItemDataService"/>
+            <argument type="service" id="Abeta\PunchOut\Service\AbetaCartService"/>
             <argument type="service" id="Shopware\Core\Checkout\Cart\SalesChannel\CartService"/>
         </service>
 
-        <service id="MagmodulesAbeta\Controller\FakeErpController" public="true">
+        <service id="Abeta\PunchOut\Controller\FakeErpController" public="true">
             <call method="setContainer">
                 <argument type="service" id="service_container"/>
             </call>
@@ -83,8 +83,8 @@
             <argument type="string">%kernel.environment%</argument>
         </service>
 
-        <service id="MagmodulesAbeta\Service\AbetaCartService">
-            <argument type="service" id="MagmodulesAbeta\Service\LoggerService"/>
+        <service id="Abeta\PunchOut\Service\AbetaCartService">
+            <argument type="service" id="Abeta\PunchOut\Service\LoggerService"/>
             <argument type="service" id="Shopware\Core\Checkout\Cart\SalesChannel\CartService"/>
             <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
             <argument type="service" id="product.repository"/>
@@ -92,37 +92,37 @@
             <argument type="service" id="Symfony\Contracts\HttpClient\HttpClientInterface"/>
         </service>
 
-        <service id="MagmodulesAbeta\Service\AbetaContextService">
+        <service id="Abeta\PunchOut\Service\AbetaContextService">
             <argument type="service" id="Shopware\Core\System\SalesChannel\Context\SalesChannelContextService"/>
             <argument type="service" id="Shopware\Core\System\SalesChannel\Context\SalesChannelContextPersister"/>
         </service>
 
-        <service id="MagmodulesAbeta\Service\AbetaApiAuthenticator">
+        <service id="Abeta\PunchOut\Service\AbetaApiAuthenticator">
             <argument type="service" id="Shopware\Core\System\SystemConfig\SystemConfigService"/>
         </service>
 
-        <service id="MagmodulesAbeta\Service\AbetaItemDataService">
+        <service id="Abeta\PunchOut\Service\AbetaItemDataService">
             <argument type="service" id="customer.repository"/>
             <argument type="service" id="sales_channel.product.repository"/>
             <argument type="service" id="Shopware\Core\Checkout\Cart\LineItemFactoryRegistry"/>
             <argument type="service" id="Shopware\Core\Checkout\Cart\SalesChannel\CartService"/>
         </service>
 
-        <service id="MagmodulesAbeta\Service\LoggerService">
+        <service id="Abeta\PunchOut\Service\LoggerService">
             <argument type="service" id="log_entry.repository"/>
         </service>
 
-        <service id="MagmodulesAbeta\Service\AbetaSalesChannelContextFactoryDecorator"
+        <service id="Abeta\PunchOut\Service\AbetaSalesChannelContextFactoryDecorator"
                  decorates="Shopware\Core\System\SalesChannel\Context\SalesChannelContextFactory"
                  decoration-priority="-500">
-            <argument type="service" id="MagmodulesAbeta\Service\AbetaSalesChannelContextFactoryDecorator.inner"/>
+            <argument type="service" id="Abeta\PunchOut\Service\AbetaSalesChannelContextFactoryDecorator.inner"/>
         </service>
 
-        <service id="MagmodulesAbeta\Subscriber\CacheKeySubscriber">
+        <service id="Abeta\PunchOut\Subscriber\CacheKeySubscriber">
             <tag name="kernel.event_subscriber" />
         </service>
 
-        <service id="MagmodulesAbeta\Subscriber\ContextSwitchSubscriber">
+        <service id="Abeta\PunchOut\Subscriber\ContextSwitchSubscriber">
             <tag name="kernel.event_subscriber" />
         </service>
     </services>

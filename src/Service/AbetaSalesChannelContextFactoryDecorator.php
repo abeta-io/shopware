@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace MagmodulesAbeta\Service;
+namespace Abeta\PunchOut\Service;
 
-use MagmodulesAbeta\Struct\AbetaSession;
+use Abeta\PunchOut\Struct\AbetaSession;
 use Shopware\Core\System\SalesChannel\Context\AbstractSalesChannelContextFactory;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
 

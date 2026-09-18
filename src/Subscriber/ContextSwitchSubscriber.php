@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace MagmodulesAbeta\Subscriber;
+namespace Abeta\PunchOut\Subscriber;
 
-use MagmodulesAbeta\Struct\AbetaSession;
+use Abeta\PunchOut\Struct\AbetaSession;
 use Shopware\Core\System\SalesChannel\Event\SwitchContextEvent;
 use Shopware\Core\System\SalesChannel\Exception\ContextPermissionsLockedException;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;

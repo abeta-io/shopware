@@ -1,4 +1,4 @@
-{% set configShipping = config('MagmodulesAbeta.config.shippingMethod') %}
+{% set configShipping = config('AbetaPunchOut.config.shippingMethod') %}
 {% set shippingMethodName = null %}
 {% if configShipping %}
     {% for shipping in page.shippingMethods %}
@@ -14,7 +14,7 @@
 
 {% set shippingMethodCount = page.cart.deliveries.elements|length %}
 {% set cartElements = page.cart.lineItems.elements %}
-{% set buttontext = config('MagmodulesAbeta.config.buttonLabel') %}
+{% set buttontext = config('AbetaPunchOut.config.buttonLabel') %}
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -29,7 +29,7 @@
 
                 <div class="modal-header">
                     <h1 class="modal-title fs-5 float-start" id="exampleModalLabel">
-                        {{ "magmodules-abeta-login.checkout.page.emptyResult"|trans|sw_sanitize }}
+                        {{ "abeta-punch-out.checkout.page.emptyResult"|trans|sw_sanitize }}
                     </h1>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
@@ -39,8 +39,8 @@
                     <div>
                         <table class="table table-striped">
                             <thead>
-                            <th>{{ "magmodules-abeta-login.checkout.table.row1"|trans|sw_sanitize }}</th>
-                            <th>{{ "magmodules-abeta-login.checkout.table.row2"|trans|sw_sanitize }}</th>
+                            <th>{{ "abeta-punch-out.checkout.table.row1"|trans|sw_sanitize }}</th>
+                            <th>{{ "abeta-punch-out.checkout.table.row2"|trans|sw_sanitize }}</th>
                             </thead>
                             <tbody class="table">
                             {% for data in cartElements %}

@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace MagmodulesAbeta\Core\Content\Extension;
+namespace Abeta\PunchOut\Core\Content\Extension;
 
-use MagmodulesAbeta\Core\Content\AbetaLogin\AbetaLoginDefinition;
+use Abeta\PunchOut\Core\Content\AbetaLogin\AbetaLoginDefinition;
 use Shopware\Core\Checkout\Customer\CustomerDefinition;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityExtension;
 use Shopware\Core\Framework\DataAbstractionLayer\Field\OneToManyAssociationField;
