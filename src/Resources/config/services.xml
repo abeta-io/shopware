@@ -90,6 +90,7 @@
             <argument type="service" id="product.repository"/>
             <argument type="service" id="category.repository"/>
             <argument type="service" id="Symfony\Contracts\HttpClient\HttpClientInterface"/>
+            <argument type="service" id="event_dispatcher"/>
         </service>
 
         <service id="Abeta\PunchOut\Service\AbetaContextService">
