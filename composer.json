@@ -2,7 +2,7 @@
     "name": "abeta-io/shopware6",
     "description": "Abeta OCI & cXML PunchOut",
     "type": "shopware-platform-plugin",
-    "version": "6.0.0",
+    "version": "6.1.0",
     "license": "MIT",
     "autoload": {
         "psr-4": {
