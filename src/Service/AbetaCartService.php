@@ -1,10 +1,10 @@
 <?php
 declare(strict_types=1);
 
-namespace MagmodulesAbeta\Service;
+namespace Abeta\PunchOut\Service;
 
-use MagmodulesAbeta\Event\AbetaCartExportEvent;
-use MagmodulesAbeta\Struct\AbetaSession;
+use Abeta\PunchOut\Event\AbetaCartExportEvent;
+use Abeta\PunchOut\Struct\AbetaSession;
 use Shopware\Core\Checkout\Cart\Cart;
 use Shopware\Core\Checkout\Cart\LineItem\LineItem;
 use Shopware\Core\Checkout\Cart\SalesChannel\CartService;
@@ -65,7 +65,7 @@ class AbetaCartService
         $abetaSession = $context->getExtension(AbetaSession::EXTENSION_NAME);
 
         if (!$abetaSession instanceof AbetaSession) {
-            if ($this->systemConfigService->get('MagmodulesAbeta.config.debug', $context->getSalesChannelId())) {
+            if ($this->systemConfigService->get('AbetaPunchOut.config.debug', $context->getSalesChannelId())) {
                 $this->logger->addEntry('Abeta punch out', $context->getContext(), null, [
                     'errorMessage' => 'Unable to export cart, punchout session data missing',
                 ]);
@@ -97,7 +97,7 @@ class AbetaCartService
             'cart_id' => $context->getToken(),
         ];
 
-        if ($this->systemConfigService->get('MagmodulesAbeta.config.exportAtConfirmStep', $context->getSalesChannelId())) {
+        if ($this->systemConfigService->get('AbetaPunchOut.config.exportAtConfirmStep', $context->getSalesChannelId())) {
             $headerData['delivery_address'] = $this->getDeliveryAddressData($context);
         }
 
@@ -286,7 +286,7 @@ class AbetaCartService
 
     public function exportCartData(string $postUrl, array $cart, SalesChannelContext $context): bool
     {
-        $debug = $this->systemConfigService->get('MagmodulesAbeta.config.debug', $context->getSalesChannelId());
+        $debug = $this->systemConfigService->get('AbetaPunchOut.config.debug', $context->getSalesChannelId());
 
         try {
             $this->httpClient->request('POST', $postUrl, [

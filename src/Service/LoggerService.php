@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace MagmodulesAbeta\Service;
+namespace Abeta\PunchOut\Service;
 
 use Monolog\Logger;
 use Shopware\Core\Framework\Context;
@@ -39,7 +39,7 @@ class LoggerService
             'level' => $level,
             'channel' => mb_substr('abeta', 0, 255),
             'context' => [
-                'source' => 'MagmodulesAbeta',
+                'source' => 'AbetaPunchOut',
                 'cartExportData' => $additionalData,
             ],
         ];

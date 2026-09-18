@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace MagmodulesAbeta\Struct;
+namespace Abeta\PunchOut\Struct;
 
 use Shopware\Core\Framework\Struct\Struct;
 

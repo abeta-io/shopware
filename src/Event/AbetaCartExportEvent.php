@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace MagmodulesAbeta\Event;
+namespace Abeta\PunchOut\Event;
 
 use Shopware\Core\Checkout\Cart\Cart;
 use Shopware\Core\Framework\Context;

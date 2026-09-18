@@ -1,9 +1,9 @@
 <?php
 declare(strict_types=1);
 
-namespace MagmodulesAbeta\Controller;
+namespace Abeta\PunchOut\Controller;
 
-use MagmodulesAbeta\Service\AbetaCartService;
+use Abeta\PunchOut\Service\AbetaCartService;
 use Shopware\Core\Checkout\Cart\SalesChannel\CartService;
 use Shopware\Core\System\SalesChannel\SalesChannelContext;
 use Shopware\Storefront\Controller\StorefrontController;
